@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- B5-FIX：识别网关出网必需（历史崩溃：SecurityException missing INTERNET permission） -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- B4-1 提醒车道：权限只追加，不改动既有条目（卡面并行纪律） -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@android:drawable/sym_def_app_icon"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <!-- B4-2：小组件 2×2 点击经 timetable://courseEdit 深链跳课程详情；
+                 singleTask 复用已有实例，热启深链由 MainActivity.onNewIntent 转发（B4-FIX） -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

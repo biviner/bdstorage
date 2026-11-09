@@ -1,0 +1,14 @@
+.board/
+.codegraph/
+.gradle/
+.kotlin/
+captures/
+build/
+*.iml
+local.properties
+release/*.apk
+tools/_downloads/
+tools/jdk-17/
+tools/android-sdk/
+tools/crash.log
+tools/dropbox_crash.txt

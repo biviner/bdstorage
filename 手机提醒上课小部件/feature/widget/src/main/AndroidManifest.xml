@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- B4-2：小组件接收器（清单合并进 app；appwidget provider 与广播接收仅追加不重排） -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!-- 2×2「下一节课」；APPWIDGET_UPDATE 为受保护广播，仅系统/桌面可发 -->
+        <receiver
+            android:name=".NextClassWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_next_class_info" />
+        </receiver>
+
+        <!-- 4×2「今日课程」 -->
+        <receiver
+            android:name=".TodayWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_today_info" />
+        </receiver>
+
+        <!-- 午夜日切闹钟：仅应用内 PendingIntent 显式投递，不导出 -->
+        <receiver
+            android:name=".MidnightAlarmReceiver"
+            android:exported="false" />
+
+        <!-- 系统时间/时区变化（受保护广播，仅系统可发）→ 立即刷新，避免跨日/换时区后显示陈旧 -->
+        <receiver
+            android:name=".TimeChangeReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

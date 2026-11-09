@@ -1,0 +1,21 @@
+智能课表（手机提醒上课小部件）Android — Release 产物信息
+============================================================
+
+版本:            0.1.0 (versionCode 1)
+构建日期:        2026-11-07 08:40
+构建提交:        6d422a5（B5-1(1/2)：release 签名配置）
+构建方式:        干净 worktree 检出（git worktree，非开发目录）→
+                 ./gradlew testDebugUnitTest :core:domain:test :app:assembleRelease
+测试结果:        178 条单测全绿，0 失败
+                 （domain 75 / data 27 / network 20 / scheduler 15 / widget 12 / app 29）
+
+产物:            timetable-0.1.0-release.apk（9.14 MB）
+SHA-256:         cbebb623bbfe48f49adabca26d8cecd1445fd8398aa6c06ff15c850c7b34e3d4
+签名密钥:        app/signing/timetable-release.jks（alias: timetable）
+签名证书 SHA-256: 4604f5163741414e6c254fa8fefb01fbd3e5f761ec1c7023139b28434ef10e4e
+
+备注:
+- 本仓库仅本地使用（无远程），MVP 签名密钥与口令（app/keystore.properties）
+  随仓库入库，以保证干净检出可复现出包；正式对外发布前必须更换为私密密钥。
+- apk 本体不入 git（.gitignore: release/*.apk），本文件随 git 提交。
+- minSdk 26 / targetSdk 35 / compileSdk 35。
