@@ -3,7 +3,7 @@
 # 改批次/卡面后重跑本脚本即可；卡面源文件在 .board/（已 gitignore）。
 set -u
 BOARD=timetable
-ROOT="D:/研一/aikaifa/手机提醒上课小部件"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BDY="$ROOT/.board"
 mkdir -p "$BDY"
 

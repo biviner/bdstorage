@@ -1,7 +1,7 @@
 # B5-1 验收记录（Hermes 亲自跑，2026-11-07）
 
 ## 干净检出验证
-- worktree: `D:/研一/aikaifa/b51-clean-checkout` @ 6d422a5（detached）
+- worktree: `<验收用 worktree 路径>` @ 6d422a5（detached）
 - `./gradlew testDebugUnitTest :app:assembleRelease --rerun-tasks` → BUILD SUCCESSFUL
 - 178 条单测全绿（domain 75 / data 27 / network 20 / scheduler 15 / widget 12 / app 29）
 - app-release.apk 9.58MB 出包成功，已拷贝至 `release/timetable-0.1.0-release.apk`

@@ -6,8 +6,9 @@
 # - git-bash(MSYS2) 的 PATH 按 ":" 分隔，条目里的 "D:" 会被截断，
 #   所以 PATH 内必须用 POSIX 形式 /d/...（msys 启动原生进程时会自动转回 Windows 格式）
 
-export JAVA_HOME="D:/研一/aikaifa/手机提醒上课小部件/tools/jdk-17"
-export ANDROID_HOME="D:/研一/aikaifa/手机提醒上课小部件/tools/android-sdk"
+PROJ_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export JAVA_HOME="$PROJ_ROOT/tools/jdk-17"
+export ANDROID_HOME="$PROJ_ROOT/tools/android-sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
-export PATH="/d/研一/aikaifa/手机提醒上课小部件/tools/jdk-17/bin:/d/研一/aikaifa/手机提醒上课小部件/tools/android-sdk/cmdline-tools/latest/bin:/d/研一/aikaifa/手机提醒上课小部件/tools/android-sdk/platform-tools:$PATH"
+export PATH="$PROJ_ROOT/tools/jdk-17/bin:$PROJ_ROOT/tools/android-sdk/cmdline-tools/latest/bin:$PROJ_ROOT/tools/android-sdk/platform-tools:$PATH"
