@@ -1,0 +1,11 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# PyInstaller 打包产物（构建可复现，产物不入库）
+build/
+dist/
+
+# 测试生成的样例输出与诊断截图
+tests/samples/output/

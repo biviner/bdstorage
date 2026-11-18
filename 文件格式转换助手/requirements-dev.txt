@@ -1,0 +1,4 @@
+# 开发/测试专用依赖（不随程序打包）
+# python-docx：仅用于 M0 及验收阶段生成/读取样例文件
+python-docx==1.2.0
+# pyinstaller：M4 打包阶段安装
